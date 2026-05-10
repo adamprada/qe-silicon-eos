@@ -1,0 +1,10 @@
+{
+  "a0_AA": 5.469635,
+  "V0_AA3_per_atom": 20.454321,
+  "E0_eV_per_atom": -155.37746016,
+  "B0_GPa": 88.7126,
+  "B0_prime": 4.255034,
+  "rms_residual_meV_per_atom": 0.008378,
+  "a0_in_PBE_range": true,
+  "B0_in_PBE_range": true
+}
