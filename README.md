@@ -25,7 +25,27 @@ No phonon, finite-temperature, or zero-point contributions are included. Reporte
 * ASE
 * NumPy, SciPy, Matplotlib
 
-Conda is the most reliable way to install Quantum ESPRESSO on macOS, including Apple Silicon.
+Conda is the most reliable way to install Quantum ESPRESSO on macOS, including Apple Silicon. Alternatively, QE can be compiled from source as described below.
+
+## Compiling Quantum ESPRESSO on Apple Silicon (M1/M2/M3)
+
+Install dependencies via Homebrew:
+
+```
+brew install gcc open-mpi cmake fftw
+```
+
+Download the desired QE release from https://www.quantum-espresso.org and unzip it. Then build with CMake:
+
+```
+cd quantum-espresso-x.y.z
+mkdir build
+cd build
+cmake -DCMAKE_C_COMPILER=mpicc -DCMAKE_Fortran_COMPILER=mpif90 -DCMAKE_INSTALL_PREFIX=/path/to/install ..
+make -jN all
+```
+
+where `N` is the number of CPU cores to use for parallel compilation (e.g. `make -j8 all`). Optionally run `make install` to copy the binaries to the prefix directory. Add the `bin/` subdirectory of your install prefix (or `build/bin/` if no prefix was set) to your `PATH` so that `pw.x` is accessible.
 
 ## Installation
 
